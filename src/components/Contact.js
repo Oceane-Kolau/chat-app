@@ -10,7 +10,7 @@ function online(isConnected) {
     if (isConnected) {
         return <div className="status">
             <div className="status-online"></div>
-            <p className="status-text">Online</p>
+            <div className="status-text">Online</div>
         </div>;
     } else {
         return <div className="status">
@@ -23,10 +23,10 @@ function online(isConnected) {
 function Contact() {
     return (
         <div className="Contact">
-            <img className="avatar" src={avatar} />
+            <img className="avatar" src={avatar} alt="" />
             <div>
                 <div className="name">
-                    <p>{firstname} {lastname}</p>
+                    {firstname} {lastname}
                 </div>
                 {online(isConnected)}
             </div>
