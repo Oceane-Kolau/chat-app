@@ -22,7 +22,7 @@ function Contact(props) {
             <img className="avatar" src={props.avatar} alt="" />
             <div>
                 <div className="name">
-                    {props.firstname} {props.lastname}
+                    {props.name}
                 </div>
                 {online(props.isConnected)}
             </div>
