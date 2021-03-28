@@ -1,10 +1,6 @@
 import React from 'react';
 import './Contact.css';
 
-const firstname = "Anita";
-const lastname = "Sutton";
-const isConnected = true;
-const avatar = "https://emdisn.com/wp-content/uploads/2019/01/avatar-373-456325.png";
 
 function online(isConnected) {
     if (isConnected) {
@@ -20,15 +16,15 @@ function online(isConnected) {
     }
 }
 
-function Contact() {
+function Contact(props) {
     return (
         <div className="Contact">
-            <img className="avatar" src={avatar} alt="" />
+            <img className="avatar" src={props.avatar} alt="" />
             <div>
                 <div className="name">
-                    {firstname} {lastname}
+                    {props.firstname} {props.lastname}
                 </div>
-                {online(isConnected)}
+                {online(props.isConnected)}
             </div>
         </div>
     );
