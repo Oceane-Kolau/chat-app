@@ -16,18 +16,27 @@ function online(isConnected) {
     }
 }
 
-function Contact(props) {
-    return (
+class Contact extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            connexion: true,
+        }
+    }
+
+    render(){
+        return (
         <div className="Contact">
-            <img className="avatar" src={props.avatar} alt="" />
+            <img className="avatar" src={this.props.avatar} alt="" />
             <div>
                 <div className="name">
-                    {props.firstname} {props.lastname}
+                    {this.props.firstname} {this.props.lastname}
                 </div>
-                {online(props.isConnected)}
+                {online(this.props.isConnected)}
             </div>
         </div>
     );
+    }
 }
 
 export default Contact;
