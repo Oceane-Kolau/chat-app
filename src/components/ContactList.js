@@ -31,9 +31,11 @@ const users = [
 
 const ContactList = () => (
     <div>
-      {users.map(item => (
-    <Contact name={item.name} avatar={item.avatar} isConnected={item.online} />
-  ))}
+        {
+            users.map(item => (
+                <Contact name={item.name} avatar={item.avatar} online={item.online} />
+            ))
+        }
     </div>
-  );
-  export default ContactList;
+);
+export default ContactList;

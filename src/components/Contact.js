@@ -1,18 +1,19 @@
 import React from 'react';
 import './Contact.css';
+import PropTypes from 'prop-types';
 
 class Contact extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            online: false,
-        }
+            online: this.props.online
+        };
     }
 
     render() {
         return (
             <div className="Contact">
-                <img className="avatar" src={this.props.avatar} alt="" />
+                <img className="avatar" src={this.props.avatar} alt={this.props.name}/>
                 <div>
                     <div className="name">
                         {this.props.name}
@@ -30,5 +31,15 @@ class Contact extends React.Component {
         );
     }
 }
+
+Contact.propTypes = {
+
+    avatar: PropTypes.string.isRequired,
+
+    name: PropTypes.string.isRequired,
+
+    online: PropTypes.bool.isRequired,
+
+};
 
 export default Contact;
