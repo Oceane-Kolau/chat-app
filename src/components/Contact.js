@@ -1,41 +1,33 @@
 import React from 'react';
 import './Contact.css';
 
-
-function online(isConnected) {
-    if (isConnected) {
-        return <div className="status">
-            <div className="status-online"></div>
-            <div className="status-text">Online</div>
-        </div>;
-    } else {
-        return <div className="status">
-            <div className="status-offline"></div>
-            <p className="status-text">Offline</p>
-        </div>;
-    }
-}
-
 class Contact extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            connexion: true,
+            online: false,
         }
     }
 
-    render(){
+    render() {
         return (
-        <div className="Contact">
-            <img className="avatar" src={this.props.avatar} alt="" />
-            <div>
-                <div className="name">
-                    {this.props.firstname} {this.props.lastname}
+            <div className="Contact">
+                <img className="avatar" src={this.props.avatar} alt="" />
+                <div>
+                    <div className="name">
+                        {this.props.name}
+                    </div>
+                    <div className="status"
+                        onClick={event => {
+                            const newOnline = !this.state.online;
+                            this.setState({ online: newOnline });
+                        }}>
+                        <div className={this.state.online ? 'status-online' : 'status-offline'}></div>
+                        <p className="status-text">{this.state.online ? 'Online' : 'Offline'}</p>
+                    </div>
                 </div>
-                {online(this.props.isConnected)}
             </div>
-        </div>
-    );
+        );
     }
 }
 
